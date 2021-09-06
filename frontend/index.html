@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
@@ -7,21 +6,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
+  <script>
+    function validateform(){  
+    var name=document.login.name.value;  
+    var password=document.login.pwd.value;  
+  
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }  
+}  
+  </script>
   <body>
     <div class="container">
-      <form action="#">
+      <form name="login" action="#" onsubmit="return validateform()">
         <div class="title">Login</div>
         <div class="input-box underline">
-          <input type="text" placeholder="Enter Your Email" required>
+          <input type="text" name="name" placeholder="Enter Your Email" >
           <div class="underline"></div>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Enter Your Password" required>
+          <input type="password" name="pwd"   placeholder="Enter Your Password" >
           <div class="underline"></div>
         </div>
         <div class="input-box button">
           <input type="submit" name="" value="Continue">
         </div>
+        <label>
+          <a class="ref2signup" href="/frontend/signup.html">Sign up Here</a>
+        </label>
+        <br>
       </form>
         
     </div>

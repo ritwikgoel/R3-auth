@@ -99,3 +99,11 @@ html, body{
   font-size: 14px;
   text-align: center;
 }
+
+.ref2signup:hover{
+  color: black;
+
+}.ref2login:hover{
+  color: black;
+
+}

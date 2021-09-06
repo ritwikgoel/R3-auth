@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
@@ -7,29 +6,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
+  <script>
+    function validateform(){  
+    var name=document.signup.name.value;  
+    var password=document.signup.pwd.value;
+    var password2=document.signup.pwd2.value;
+    var email=document.signup.email.value;  
+  
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }  
+}  
+  </script>
   <body>
     <div class="container">
-      <form action="#">
+      <form name="signup" action="#" onsubmit="return validateform()">
         <div class="title">Sign Up</div>
         <div class="input-box underline">
-            <input type="text" placeholder="Enter Your Name" required>
+            <input type="text" name="name" placeholder="Enter Your Name" >
             <div class="underline"></div>
         </div>
         <div class="input-box underline">
-            <input type="text" placeholder="Enter Your Email" required>
+            <input type="text" name="email" placeholder="Enter Your Email" >
             <div class="underline"></div>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Create Your Password" required>
+          <input type="password" name="pwd" placeholder="Create Your Password" >
           <div class="underline"></div>
         </div>
         <div class="input-box">
-            <input type="password" placeholder="Re-Type Your Password" required>
+            <input type="password" name="pwd2" placeholder="Re-Type Your Password" >
             <div class="underline"></div>
           </div>
         <div class="input-box button">
           <input type="submit" name="" value="Continue">
         </div>
+        <label>
+          <a class="ref2login" href="/frontend/index.html">Log in Here</a>
+        </label>
+        <br>
       </form>
         
     </div>
