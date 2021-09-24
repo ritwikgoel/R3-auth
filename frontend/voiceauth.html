@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2FA</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="backend/voiceauth.js"></script>
+    
+</head>
+<script>
+    function getVoice(){
+        const player = document.getElementById('player');
+        const levelRangeElement = document.getElementById("levelRange");
+        const handleSuccess = function(stream) {
+            
+            if (window.URL) {
+            player.srcObject = stream;
+            } else {
+            player.src = stream;
+            }
+            recorder = new MediaRecorder(stream);
+            const context = new AudioContext();
+            const source = context.createMediaStreamSource(stream);
+            // source.connect(context.destination);
+            if (typeof Meyda === "undefined") {
+                console.log("Meyda could not be found! Have you included it?");
+                } else {
+                const analyzer = Meyda.createMeydaAnalyzer({
+                    audioContext: context,
+                    source: source,
+                    bufferSize: 512,
+                    featureExtractors: ["rms","zcr"],
+                    callback: (features) => {
+                    console.log(features);
+                    levelRangeElement.value = features.rms;
+                    },
+                });
+                analyzer.start();
+            }
+        };
+
+        
+
+        navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+            .then(handleSuccess);
+    }
+    function stopVoice(recorder,stream){
+        recorder.stream.getAudioTracks().forEach(function(track){track.stop();});
+    }
+
+</script>
+<body>
+    <div class="container">
+        <form name="voiceauth" action="#">
+            <div class="title">Voice Authentication</div>
+            <div class="">Say "Hey, this is {Your Name}"</div> 
+            <button type="button" class="voice-button" onclick="getVoice()">Say</button>&nbsp;
+            <button type="button" class="voice-button" onclick="stopVoice()">Stop</button><br><hr>
+            Hear it!
+            <audio id="player" controls></audio> <br>
+            <label for="level">level</label>
+            <input
+            type="range"
+            id="levelRange"
+            name="level"
+            min="0.0"
+            max="1.0"
+            step="0.001"
+            /> 
+        </form>
+    </div>
+    
+</body>
+</html>
