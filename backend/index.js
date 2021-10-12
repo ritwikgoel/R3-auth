@@ -12,4 +12,5 @@ var signal = new Array(32).fill(0).map((element, index) => {
     return -1;
   });
 //extraction of features
+console.log(signal);
   console.log(meyda.extract("zcr", signal));
