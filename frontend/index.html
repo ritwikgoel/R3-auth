@@ -1,48 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <script>
-    function validateform(){  
-    var name=document.login.name.value;  
-    var password=document.login.pwd.value;  
-  
-if (name==null || name==""){  
-  alert("Email can't be blank");  
-  return false;  
-}else if(password.length<6){  
-  alert("Password must be at least 6 characters long.");  
-  return false;  
-  }  
-}  
-  </script>
-  <body>
-    <div class="container">
-      <form name="login" action="#" method="POST" onsubmit="return validateform()">
-        <div class="title">Login</div>
-        <div class="input-box underline">
-          <input type="text" name="name" placeholder="Enter Your Email" >
-          <div class="underline"></div>
-        </div>
-        <div class="input-box">
-          <input type="password" name="pwd"   placeholder="Enter Your Password" >
-          <div class="underline"></div>
-        </div>
-        <div class="input-box button">
-          <input type="submit" name="" value="Continue">
-        </div>
-        <label>
-          <a class="ref2signup" href="/signup.html">Sign up Here</a>
-          <a class="back2mains" href="/main.html">Home</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2FA using voice semantics </title>
 
-        </label>
-        <br>
-      </form>
-        
+
+</head>
+<body> 
+    <div class="header">
+        <a href="#home" class="logo" style="font-size: 40px;font-family: 'Montserrat', sans-serif;"><b>R3 Authentication</b></a>
+        <div class="header-right">
+          <a class="active" href="#home" style="font-family: 'Montserrat', sans-serif;">Home</a>
+          <a href="#contact" style="font-family: 'Montserrat', sans-serif; ">Contact</a>
+          <a href="#aboutUs" style="font-family: 'Montserrat', sans-serif;">About</a>
+        </div>
+      </div>   
+      
+      <br><br>  
+      <hr width="100%"
+      size="3" color="black"
+      noshade>      <br>
+    
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTkWVPG8mafG669JTpRsRTUh4wlzRqt44fUw&usqp=CAU" style="border: 10px solid #000000; border-radius: 9px;">
+
+    <br>
+    <button class="but2"><a class="btnblk" href="/signup.html" style="  font-family: 'Montserrat', sans-serif; font-size: 27px; text-decoration: none;">Sign Up</a></button> <button class="but2"><a class="btnblk" href="/main.html" style="  font-family: 'Montserrat', sans-serif; font-size:27px; text-decoration: none;">Sign In</a></button>
+    <br><br>
+    <h1 class="aboutThou" style="font-family: 'Montserrat', sans-serif; font-size: 35px;">
+       <u>About Us</u> 
+    </h1>
+    <div class="aboutR3" id="aboutUs" style=" font-family: 'Montserrat', sans-serif; font-size: 17.4px;"><br>
+        <p><i>
+            R3 Authentication extracts various attributes of the users voice and compares them against the same 
+            by formulating its own statistical model. Using JavaScript libraries like meyda.js, node.js 
+            and a mongoDB cluster database, we aim to raise the standard of secure 2FA login systems. 
+        </i></p>
     </div>
-  </body>
+    <br>
+    <hr width="100%"
+    size="3" color="black"
+    noshade> 
+    
+    <footer id="contact">
+        <p style="color: black; font-family: 'Montserrat', sans-serif;"><br>
+            <b>Made By</b><br>
+            <a href="https://github.com/ritwikgoel" style="color: black;">Riwik Goel</a>&nbsp;
+            <a href="https://github.com/Rghv100" style="color: black;">Raghav Arora</a>&nbsp;
+            <a href="https://github.com/TAbstractT" style="color: black;">Rishab Rajumohan</a>&nbsp;
+            <a href="https://github.com/codeup729" style="color: black;">Anitej Srivastava</a>
+            <br>
+            <b>Email</b><br>     
+        <a href="mailto:ritwikgoel@yahoo.com" style="color: black;">R3@gmail.com</a></p>
+      </footer>
+</body>
 </html>
