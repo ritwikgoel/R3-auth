@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2FA</title>
     <link rel="stylesheet" href="style.css">
-    <script src="/backend/voiceauth.js"></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+    <!-- <script src="/voiceauth.js"></script> -->
     
 </head>
 <style>
@@ -30,7 +31,7 @@
 }
 </style>
 <script>
-    //const meyda=require("meyda");    
+       
     let audioIN = { audio: true };
     navigator.mediaDevices.getUserMedia(audioIN).then(function (mediaStreamObj) {
         let audio = document.querySelector('audio');
@@ -66,7 +67,15 @@
           let audioSrc = window.URL
               .createObjectURL(audioData);
             playAudio.src = audioSrc;
-            //console.log(meyda.extract("zcr", signal));
+            //alert(audioSrc);
+            
+            var myReader = new FileReader();
+            myReader.addEventListener("loadend", function(e){
+            console.log(e.srcElement.result); //prints the weird string 
+});
+           
+            console.log( myReader.readAsText(audioData))
+
 
             
         }
