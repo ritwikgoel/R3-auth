@@ -29,7 +29,8 @@
   padding: 10px 24px;
 }
 </style>
-<script>    
+<script>
+    //const meyda=require("meyda");    
     let audioIN = { audio: true };
     navigator.mediaDevices.getUserMedia(audioIN).then(function (mediaStreamObj) {
         let audio = document.querySelector('audio');
@@ -65,11 +66,15 @@
           let audioSrc = window.URL
               .createObjectURL(audioData);
             playAudio.src = audioSrc;
+            //console.log(meyda.extract("zcr", signal));
+
+            
         }
       })
         .catch(function (err) {
         console.log(err.name, err.message);
       });
+    
 
 </script>
 <body>
