@@ -7,7 +7,7 @@
     <title>2FA</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
-    <!-- <script src="/voiceauth.js"></script> -->
+    <script src="/voiceauth.js"></script>
     
 </head>
 <style>
@@ -73,7 +73,7 @@
             myReader.addEventListener("loadend", function(e){
             console.log(e.srcElement.result); //prints the weird string 
 });
-           
+           //alert(URL.createObjectURL(audioData));
             console.log( myReader.readAsText(audioData))
 
 
