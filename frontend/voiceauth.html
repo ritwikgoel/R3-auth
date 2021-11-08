@@ -6,8 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2FA</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
-    <script src="/voiceauth.js"></script>
+    <!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+    
+    <script src="/voiceauth.js"></script> -->
+    <script src="https://unpkg.com/meyda/dist/web/meyda.min.js"></script>
+
+
+    <script defer>
+      let audioIN = { audio: true };
+      navigator.mediaDevices.getUserMedia(audioIN).then(function (mediaStreamObj) {
+          let audio = document.querySelector('audio');
+          if ("srcObject" in audio) {
+            audio.srcObject = mediaStreamObj;
+          }
+          else {  
+            audio.src = window.URL.createObjectURL(mediaStreamObj);
+          }
+          audio.onloadedmetadata = function (ev) {
+            audio.play();
+          };
+          let start = document.getElementById('btnStart');
+          let stop = document.getElementById('btnStop');  
+          let playAudio = document.getElementById('adioPlay');
+          let mediaRecorder = new MediaRecorder(mediaStreamObj);
+          start.addEventListener('click', function (ev) {
+            mediaRecorder.start();
+          })
+            stop.addEventListener('click', function (ev) {
+            mediaRecorder.stop();
+          });
+          mediaRecorder.ondataavailable = function (ev) {
+            dataArray.push(ev.data);
+          }
+          let dataArray = [];
+          mediaRecorder.onstop = function (ev) {
+    
+            let audioData = new Blob(dataArray, 
+                      { 'type': 'audio/mp3;' });
+              
+            dataArray = [];
+            let audioSrc = window.URL
+                .createObjectURL(audioData);
+              playAudio.src = audioSrc;
+              //alert(audioSrc);
+              
+              var myReader = new FileReader();
+              myReader.addEventListener("loadend", function(e){
+              console.log(e.srcElement.result); //prints the weird string 
+  });
+             //alert(URL.createObjectURL(audioData));
+              console.log( myReader.readAsText(audioData))
+  
+  
+              
+          }
+        })
+          .catch(function (err) {
+          console.log(err.name, err.message);
+        });
+      
+  
+  </script>
+  
+    
     
 </head>
 <style>
@@ -30,62 +91,8 @@
   padding: 10px 24px;
 }
 </style>
-<script>
-       
-    let audioIN = { audio: true };
-    navigator.mediaDevices.getUserMedia(audioIN).then(function (mediaStreamObj) {
-        let audio = document.querySelector('audio');
-        if ("srcObject" in audio) {
-          audio.srcObject = mediaStreamObj;
-        }
-        else {  
-          audio.src = window.URL.createObjectURL(mediaStreamObj);
-        }
-        audio.onloadedmetadata = function (ev) {
-          audio.play();
-        };
-        let start = document.getElementById('btnStart');
-        let stop = document.getElementById('btnStop');  
-        let playAudio = document.getElementById('adioPlay');
-        let mediaRecorder = new MediaRecorder(mediaStreamObj);
-        start.addEventListener('click', function (ev) {
-          mediaRecorder.start();
-        })
-          stop.addEventListener('click', function (ev) {
-          mediaRecorder.stop();
-        });
-        mediaRecorder.ondataavailable = function (ev) {
-          dataArray.push(ev.data);
-        }
-        let dataArray = [];
-        mediaRecorder.onstop = function (ev) {
-  
-          let audioData = new Blob(dataArray, 
-                    { 'type': 'audio/mp3;' });
-            
-          dataArray = [];
-          let audioSrc = window.URL
-              .createObjectURL(audioData);
-            playAudio.src = audioSrc;
-            //alert(audioSrc);
-            
-            var myReader = new FileReader();
-            myReader.addEventListener("loadend", function(e){
-            console.log(e.srcElement.result); //prints the weird string 
-});
-           //alert(URL.createObjectURL(audioData));
-            console.log( myReader.readAsText(audioData))
 
 
-            
-        }
-      })
-        .catch(function (err) {
-        console.log(err.name, err.message);
-      });
-    
-
-</script>
 <body>
     <div class="container">
         <form name="voiceauth" action="#">
