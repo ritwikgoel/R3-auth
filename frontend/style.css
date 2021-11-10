@@ -209,3 +209,15 @@ footer {
 .btnblk{
   color: black;
 }
+
+.adminbutton{
+  background: linear-gradient(to right, #99004d 0%, #ff0080 100%);
+  font-size: 17px;
+  color: #fff;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
