@@ -1,4 +1,4 @@
-//webkitURL is deprecated but nevertheless
+
 URL = window.URL || window.webkitURL;
 
 var gumStream; 					
@@ -6,7 +6,7 @@ var rec;
 var input; 							
 
 var AudioContext = window.AudioContext || window.webkitAudioContext;
-var audioContext 
+
 
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
@@ -89,7 +89,7 @@ function stopRecording() {
 function createDownloadLink(blob) {
 	
 	var url = URL.createObjectURL(blob);
-	alert(url)
+	//alert(url)
 	var au = document.createElement('audio');
 	var li = document.createElement('li');
 	var link = document.createElement('a');
@@ -126,3 +126,4 @@ function createDownloadLink(blob) {
 	//add the li element to the ol
 	recordingsList.appendChild(li);
 }
+
