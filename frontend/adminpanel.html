@@ -11,18 +11,24 @@
     var name=document.ap.name.value;  
     var password=document.ap.pwd.value;  
   
-if (name==null || name==""){  
+    if (name==null || name==""){  
   alert("Name can't be blank");  
   return false;  
-}else if(password.length<6){  
-  alert("Password must be at least 6 characters long.");  
+} 
+if(password.length<5){  
+  alert("Password must be at least 5 characters long.");  
   return false;  
+  }
+  if(name=="admin" && password=="admin"){
+    return true;
   }  
+  alert("Wrong crendentials for the admin")
+  return false;
 }  
   </script>
   <body>
     <div class="container">
-      <form name="ap" action="#" method="post" onsubmit="return validateform()">
+      <form name="ap" action="/adminpanelauthenticated" method="post" onsubmit="return validateform()">
         <div class="title">Admin login</div>
         <div class="input-box underline">
           <input type="text" name="name" placeholder="Enter Admin username" >
