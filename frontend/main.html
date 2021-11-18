@@ -32,6 +32,19 @@ if (name==null || name==""){
           <input type="password" name="pwd" placeholder="Enter Your Password" >
           <div class="underline"></div>
         </div>
+        <br><br>
+        <div id="controls">
+          <button class="adminbutton" id="recordButton">Record</button>
+          <button  class="adminbutton" id="pauseButton" disabled>Pause</button>
+          <button class="adminbutton" id="stopButton" disabled>Stop</button>
+         </div>
+         <div id="formats">Format: start recording to see sample rate</div>
+         <p><strong>Recordings:</strong></p>
+         <ol id="recordingsList"></ol>
+         <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+         <script src="app2.js"></script>
+        <br><br>
+
         <div class="input-box button">
           <input type="submit" name="" value="Continue">
         </div>

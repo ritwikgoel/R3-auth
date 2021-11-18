@@ -67,6 +67,7 @@ function pauseRecording(){
 }
 
 function stopRecording() {
+	
 	console.log("stopButton clicked");
 
 	//disable the stop button, enable the record too allow for new recordings
@@ -88,6 +89,7 @@ function stopRecording() {
 function createDownloadLink(blob) {
 	
 	var url = URL.createObjectURL(blob);
+	alert(url)
 	var au = document.createElement('audio');
 	var li = document.createElement('li');
 	var link = document.createElement('a');
