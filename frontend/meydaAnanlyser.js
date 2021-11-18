@@ -9,8 +9,3 @@ let value=fs.readFile('/Users/ritwikgoel/Downloads/output.txt', 'utf8' , (err, d
 })
 
 
-// const name = "Bentley";
-
-// const lastFour =  name.slice(-4)
-
-// console.log(lastFour); // "tley"

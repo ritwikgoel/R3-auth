@@ -26,6 +26,7 @@ mongoose.connect('mongodb+srv://Raghavaro:banana_auth@bananacluster.lfdqb.mongod
 var Schema = new mongoose.Schema({
   name: String,
   password: String,
+  key: String
 });
 var User=mongoose.model("User",Schema);
 app.post('/adminpanelauthenticated',(req,res)=>{
@@ -49,17 +50,20 @@ app.post('/adminpanelauthenticated',(req,res)=>{
       }
       var name = req.body.name;
       var password = req.body.pwd;
+      var key=req.body.finalvalue;
       console.log(name);
       console.log(password);
+      console.log(key);
       User.findOne({name},(err,data)=>{
         if(err || !data){
           return callback(false);
         }
-        if(data.password==password){
+        if(data.password==password && data.key==key){
           //res.send("success")
           return callback(true);
         }
         else{
+          alert("Login failed")
           return callback(false);
         }
       });
@@ -87,11 +91,14 @@ app.post('/adminpanelauthenticated',(req,res)=>{
       var name = req.body.name;
       var password1 = req.body.pwd;
       var password2 = req.body.pwd2;
+      var key= req.body.finalvalue;
       console.log(name);
       console.log(password1);
+      console.log(key)
       var myData = new User({
         name: req.body.name,
-        password: req.body.pwd
+        password: req.body.pwd,
+        key: req.body.finalvalue
       });
       if(password1==password2){
         myData.save()
