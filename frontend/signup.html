@@ -60,18 +60,35 @@ if (email==null || email==""){
            <ol id="recordingsList"></ol>
            <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
            <script src="app2.js"></script><br><br>
+           
+           <button  class="adminbutton" id="backend" >RUN</button>
         <div class="input-box button">
           <input type="text" id ="finalvalue"name="finalvalue" placeholder="Enter the key">
           <input type="submit" name="" value="Continue">
         </div>
+        
         <label>
           <a class="ref2login" href="/main.html">Log in </a>
           <a class="back2main" href="/index.html">Home</a>
+
           
         </label>
         <br>
       </form>
         
     </div>
+    <script>
+      document.getElementById('backend').addEventListener('click',()=>{
+         fetch('http://127.0.0.1:8080/pleaserun',
+         {
+           method: 'POST'
+         }
+         ).then(
+           (res)=>{
+             console.log(res);
+           }
+         )
+      })
+    </script>
   </body>
 </html>

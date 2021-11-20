@@ -1,6 +1,9 @@
+cors=require('cors');
+const shell = require('shelljs')
 var express = require('express'),
     path = require('path'),
     app = express();
+    app.use(cors());
     var bodyParser = require('body-parser');
 const { callback } = require('meyda');
 const ejs = require('ejs');
@@ -36,6 +39,17 @@ app.post('/adminpanelauthenticated',(req,res)=>{
     })
   })
 })
+
+  app.post('/pleaserun',(req,res)=>{
+    
+    shell.exec("cd /Users/ritwikgoel/Downloads && pwd && mv audio.wav ~/Documents/Projects/banana-auth/frontend")
+    //shell.exec("pwd")
+    //shell.exec()
+    shell.exec("meyda audio.wav zcr rms energy > outputtt.txt")
+    res.status(200).json({
+      message:"success"
+    });
+  })
 
 
     app.use('/', express.static(path.join(__dirname, '')))

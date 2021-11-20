@@ -1,6 +1,3 @@
- const shell = require('shelljs')
- shell.exec("pwd")
-shell.exec("cd /Users/ritwikgoel/Downloads && pwd && mv audio.wav ~/Documents/Projects/banana-auth/frontend")
-//shell.exec("pwd")
-//shell.exec()
-shell.exec("meyda audio.wav zcr > outputtt.txt")
+const meyda=require("meyda");
+
+console.log(meyda.extract('zcr',"A.wav"));
