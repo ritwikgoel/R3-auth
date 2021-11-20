@@ -127,5 +127,9 @@ function createDownloadLink(blob) {
 	//add the li element to the ol
 	recordingsList.appendChild(li);
 	document.getElementById("linkofaudio").click();
+
+
+	//here we need to run:
+	//meyda audio.wav rms zcr energy 
 }
 

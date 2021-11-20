@@ -1,11 +1,6 @@
-const fs = require('fs')
-
-let value=fs.readFile('/Users/ritwikgoel/Downloads/output.txt', 'utf8' , (err, data) => {
-  if (err) {
-    console.error(err)
-    return
-  }
-  console.log(data)
-})
-
-
+ const shell = require('shelljs')
+ shell.exec("pwd")
+shell.exec("cd /Users/ritwikgoel/Downloads && pwd && mv audio.wav ~/Documents/Projects/banana-auth/frontend")
+//shell.exec("pwd")
+//shell.exec()
+shell.exec("meyda audio.wav zcr > outputtt.txt")
