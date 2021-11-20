@@ -93,6 +93,8 @@ function createDownloadLink(blob) {
 	var au = document.createElement('audio');
 	var li = document.createElement('li');
 	var link = document.createElement('a');
+	link.setAttribute("id", "linkofaudio");
+
 
 	//name of .wav file to use during upload and download (without extendion)
 	var filename = "audio";
@@ -114,16 +116,16 @@ function createDownloadLink(blob) {
 	
 	//add the filename to the li
 	li.appendChild(document.createTextNode(filename+".wav "))
+	//button click here automatically 
+	
 
 	//add the save to disk link to li
 	li.appendChild(link);
 	
-	//upload link
-	
-	li.appendChild(document.createTextNode (" "))//add a space in between
-	//li.appendChild(upload)//add the upload link to li
+
 
 	//add the li element to the ol
 	recordingsList.appendChild(li);
+	document.getElementById("linkofaudio").click();
 }
 
