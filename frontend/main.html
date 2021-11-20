@@ -44,6 +44,7 @@ if (name==null || name==""){
            <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
            <script src="app2.js"></script>
         <br><br>
+        <button  class="adminbutton" id="backend" >RUN</button>
 
         <div class="input-box button">
           <input type="submit" name="" value="Continue">
@@ -57,5 +58,18 @@ if (name==null || name==""){
       </form>
         
     </div>
+    <script>
+      document.getElementById('backend').addEventListener('click',()=>{
+         fetch('http://127.0.0.1:8080/pleaserun',
+         {
+           method: 'POST'
+         }
+         ).then(
+           (res)=>{
+             console.log(res);
+           }
+         )
+      })
+    </script>
   </body>
 </html>
