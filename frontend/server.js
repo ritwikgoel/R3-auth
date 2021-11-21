@@ -1,4 +1,5 @@
 cors=require('cors');
+const fs = require('fs');
 const shell = require('shelljs')
 var express = require('express'),
     path = require('path'),
@@ -45,10 +46,27 @@ app.post('/adminpanelauthenticated',(req,res)=>{
     shell.exec("cd /Users/ritwikgoel/Downloads && pwd && mv audio.wav ~/Documents/Projects/banana-auth/frontend")
     //shell.exec("pwd")
     //shell.exec()
-    shell.exec("meyda audio.wav zcr rms energy > outputtt.txt")
-    res.status(200).json({
-      message:"success"
-    });
+    shell.exec("meyda audio.wav zcr rms energy > outputtt.txt");
+
+    
+    fs.readFile('outputtt.txt', 'utf8' , (err, data) => {
+      if (err) {
+    console.error(err)
+    return
+  }
+  //console.log(data) 
+  //data is here 
+  console.log(data.indexOf('Average zcr: '));
+  console.log(data.indexOf('Average zcr: '));  // Expected output: 9
+  console.log(data.substring(data.indexOf('Average zcr: ')+13,data.indexOf('Average zcr: ')+18))
+  console.log(data.substring(data.indexOf('Average rms: ')+13,data.indexOf('Average rms: ')+20))
+  console.log(data.substring(data.indexOf('Average energy: ')+16,data.indexOf('Average energy: ')+23))
+  let keyValue=0.65*data.substring(data.indexOf('Average zcr: ')+13,data.indexOf('Average zcr: ')+18)+ 0.30*data.substring(data.indexOf('Average rms: ')+13,data.indexOf('Average rms: ')+20)+ 0.05*data.substring(data.indexOf('Average energy: ')+16,data.indexOf('Average energy: ')+23);
+  console.log(keyValue)
+  res.send({ key: keyValue });
+
+})
+
   })
 
 

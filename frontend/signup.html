@@ -62,6 +62,7 @@ if (email==null || email==""){
            <script src="app2.js"></script><br><br>
            
            <button  class="adminbutton" id="backend" >RUN</button>
+           <input type="text" name="keyfinal" id="keyfinal" class="keyfinal" disabled>
         <div class="input-box button">
           <input type="submit" name="" value="Continue">
         </div>
@@ -78,16 +79,22 @@ if (email==null || email==""){
     </div>
     <script>
       document.getElementById('backend').addEventListener('click',()=>{
-         fetch('http://127.0.0.1:8080/pleaserun',
-         {
-           method: 'POST'
-         }
-         ).then(
-           (res)=>{
-             console.log(res);
-           }
-         )
+        fetch('http://127.0.0.1:8080/pleaserun', { method: 'POST'})
+  .then((res) => {
+     return res.json()
+})
+.then((data) => {
+   // Do something with the returned data.
+  //console.log(data);
+  let x=data;
+  console.log(x.key);
+  document.getElementById("keyfinal").value=x.key;
+
+
+});
       })
     </script>
   </body>
 </html>
+
+
