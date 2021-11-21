@@ -99,19 +99,20 @@ app.post('/adminpanelauthenticated',(req,res)=>{
         if(err || !data){
           return callback(false);
         }
-        var keyfloat=parseFloat(key);
-        var datafloat=parseFloat(data.key);
+        var keyfloat=parseFloat(data.key);
+        var datafloat=parseFloat(key);
 
         //console.log(typeof(data))
         //console.log(keyfloat)
 
         //console.log(datafloat)
-        let racekeyfloat=keyfloat+(0.25*keyfloat);
-        let racekeyfloatminus=keyfloat-(0.25*keyfloat);
+        let racekeyfloat=keyfloat+(0.15*keyfloat);
+        let racekeyfloatminus=keyfloat-(0.20*keyfloat);
+        console.log("from frontend"+datafloat)
         console.log(racekeyfloat)
         console.log(racekeyfloatminus)
 
-        if(data.password==password && (racekeyfloatminus<=datafloat || datafloat>=racekeyfloat)){
+        if(data.password==password && (racekeyfloatminus<=datafloat && datafloat<=racekeyfloat)){
           //res.send("success")
           //console.log("Is this workingn")
           return callback(true);
