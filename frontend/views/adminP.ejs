@@ -13,6 +13,7 @@
             <th scope="col">ID</th>
             <th scope="col">name</th>
             <th scope="col">password</th>
+            <th scope="col">Key</th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +22,7 @@
                     <th scope="row"><%=user._id %></th>
                     <td><%= user.name %></td>
                     <td><%= user.password %></td>
+                    <td><%= user.key %></td>
                 </tr>
             <%})%> 
         </tbody>

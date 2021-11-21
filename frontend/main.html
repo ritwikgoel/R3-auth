@@ -25,12 +25,14 @@ if (name==null || name==""){
       <form name="login" action="/addname" method="POST" onsubmit="return validateform()">
         <div class="title">Login</div>
         <div class="input-box underline">
-          <input type="text" name="name" placeholder="Enter Your Email" >
+          <input type="text" name="name" placeholder="Enter Your Name" >
           <div class="underline"></div>
         </div>
         <div class="input-box">
           <input type="password" name="pwd" placeholder="Enter Your Password" >
           <div class="underline"></div>
+          <input type="text" name="keyfinal" id="keyfinal" class="keyfinal">
+
         </div>
         <br><br>
         <div id="controls">
@@ -44,7 +46,7 @@ if (name==null || name==""){
            <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
            <script src="app2.js"></script>
         <br><br>
-        <button  class="adminbutton" id="backend" >RUN</button>
+        <button type="button" class="adminbutton" id="backend" >RUN</button>
 
         <div class="input-box button">
           <input type="submit" name="" value="Continue">
@@ -60,15 +62,19 @@ if (name==null || name==""){
     </div>
     <script>
       document.getElementById('backend').addEventListener('click',()=>{
-         fetch('http://127.0.0.1:8080/pleaserun',
-         {
-           method: 'POST'
-         }
-         ).then(
-           (res)=>{
-             console.log(res);
-           }
-         )
+        fetch('http://127.0.0.1:8080/pleaserun', { method: 'POST'})
+  .then((res) => {
+     return res.json()
+})
+.then((data) => {
+   // Do something with the returned data.
+  //console.log(data);
+  let x=data;
+  console.log(x.key);
+  document.getElementById("keyfinal").value=x.key;
+
+
+});
       })
     </script>
   </body>
