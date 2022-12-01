@@ -10,6 +10,17 @@ system to validate every user and ensure that the login is adequately secure.
 - Fast
 - Secure
 
+## Screenshots
+
+![App Screenshot](https://i.imgur.com/jTt20bT.png)
+
+![App Screenshot](https://i.imgur.com/kJWJquv.png)
+
+![App Screenshot](https://i.imgur.com/kIAJsmp.png)
+
+![App Screenshot](https://i.imgur.com/PG2M4Su.png)
+
+
 ## Contribute :)
 To get involved you can take a look at open issues https://github.com/NetSepio/ChromiumExtension/issues
 
@@ -27,13 +38,4 @@ See `contributing.md` for ways to get started.
 Please adhere to this project's `code of conduct`.
 
 
-## Screenshots
-
-![App Screenshot](https://i.imgur.com/jTt20bT.png)
-
-![App Screenshot](https://i.imgur.com/kJWJquv.png)
-
-![App Screenshot](https://i.imgur.com/kIAJsmp.png)
-
-![App Screenshot](https://i.imgur.com/PG2M4Su.png)
 
